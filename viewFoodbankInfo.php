@@ -1,0 +1,74 @@
+<?php
+    include("loadclass.php");
+
+    $id = $_POST['id'];
+    // echo $id;
+    // echo "<script>console.log(.$id.) </script>";
+
+    $foodbank = new Foodbank();
+    $foodbankDetails = $foodbank->getdetailFoodbank($id); 
+    // echo "<pre>";
+    // print_r($foodbankDetails);
+    // echo "</pre>";
+
+echo'    <div class="row g-3 px-4 py-4">';
+echo'        <div class="col-sm-12">';
+echo'        <label for="foodbankName" class="form-label">Foodbank Name</label>';
+echo'        <input type="text" class="form-control" id="foodbankName" name="fb_name" value="'.$foodbankDetails[0]['Fb_name'].'" readonly>';
+
+echo'        </div>';
+echo'        ';
+echo'        <div class="col-sm-12">';
+echo'        <label for="foodBankNumber" class="form-label">Phone Number</label>';
+echo'        <input type="text" class="form-control" id="phoneNumber" name="phone" value="'.$foodbankDetails[0]['Phone'].'" readonly>';
+echo'        </div>';
+echo'        ';
+echo'        <div class="col-md-6">';
+echo'        <label for="openTime" class="form-label">Opening Time</label>';
+echo'        <input type="text" class="form-control" id="openTime" name="openTime" value="'.$foodbankDetails[0]['OpeningTime'].'" readonly>';
+echo'        <div class="invalid-feedback">';
+echo'            Please provide a valid time.';
+echo'        </div>';
+echo'        </div>';
+echo'        ';
+echo'        <div class="col-md-6">';
+echo'        <label for="closeTime" class="form-label">Closing Time</label>';
+echo'        <input type="text" class="form-control" id="closeTime" name="closeTime" value="'.$foodbankDetails[0]['ClosingTime'].'" readonly>';
+echo'        </div>';
+echo'';
+echo'        <div class="col-12">';
+echo'        <label for="foodBankEmail" class="form-label">Email</label>';
+echo'        <input type="email" class="form-control" id="email" name="email" value="'.$foodbankDetails[0]['Email'].'" readonly';
+echo'        </div>';
+echo'';
+echo'        <div class="col-12">';
+echo'        <label for="foodBankAddress" class="form-label">Address</label>';
+echo'        <input type="text" class="form-control" id="address" name="address" value="'.$foodbankDetails[0]['Address'].'" readonly>';
+echo'        </div>';
+echo'';
+echo'        <div class="col-12">';
+echo'        <label for="foodBankAddress2" class="form-label">Address 2 </label>';
+echo'        <input type="text" class="form-control" id="address2" name="address2" value="'.$foodbankDetails[0]['Address2'].'" readonly>';
+echo'        </div>	';
+echo'        ';
+echo'        <div class="col-md-6">';
+echo'        <label for="foodBankState" class="form-label">State</label>';
+echo'        <input type="text" class="form-control" id="state" name="state" value="'.$foodbankDetails[0]['State'].'" readonly>';
+echo'        </div>';
+echo'';
+echo'        <div class="col-md-6">';
+echo'            <label for="foodBankCity" class="form-label">City</label>';
+echo'            <input type="text" class="form-control" id="city" name="city" value="'.$foodbankDetails[0]['City'].'" readonly>';
+echo'            </div>';
+echo'        </div>';
+echo'        ';
+echo'        <div class="col-md-6">';
+echo'        <label for="foodBankPostcode" class="form-label">Postcode</label>';
+echo'        <input type="text" class="form-control" id="postcode" name="postcode" value="'.$foodbankDetails[0]['Postcode'].'" readonly>';
+echo'        </div>';
+echo'        <div class="col-12">';
+echo'            <label for="foodbankDescription" class="form-label">Description</label>';
+echo'            <textarea class="form-control" id="description" name="description" readonly>'.$foodbankDetails[0]['Description'].' </textarea>';
+echo'        </div>	';
+echo'    </div>';
+?>
